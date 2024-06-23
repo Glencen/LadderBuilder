@@ -217,4 +217,164 @@ namespace Tests
 			Assert::AreEqual(expectedLadderAmount, actualLadderAmount);
 		}
 	};
+
+	TEST_CLASS(Test_validateInput)
+	{
+	public:
+
+		TEST_METHOD(emptyString)
+		{
+			string inputCheck = "";
+			errors error;
+
+			bool expectedValidationResult = false;
+			bool actualValidationResult = validateInput(inputCheck, error);
+			errors expectedError = noInputData;
+			int dataValid = 0;
+
+			if (expectedValidationResult == actualValidationResult && error == expectedError)
+				dataValid = 1;
+
+			Assert::AreEqual(1, dataValid);
+		}
+
+		TEST_METHOD(number)
+		{
+			string inputCheck = "56";
+			errors error;
+
+			bool expectedValidationResult = true;
+			bool actualValidationResult = validateInput(inputCheck, error);
+
+			Assert::AreEqual(expectedValidationResult, actualValidationResult);
+		}
+
+		TEST_METHOD(multipleNumbers)
+		{
+			string inputCheck = "12 46 8";
+			errors error;
+
+			bool expectedValidationResult = false;
+			bool actualValidationResult = validateInput(inputCheck, error);
+			errors expectedError = unacceptableSymbolsPresent;
+			int dataValid = 0;
+
+			if (expectedValidationResult == actualValidationResult && error == expectedError)
+				dataValid = 1;
+
+			Assert::AreEqual(1, dataValid);
+		}
+
+		TEST_METHOD(numbersAndPunctuationSymbols)
+		{
+			string inputCheck = "1,2.3_4";
+			errors error;
+
+			bool expectedValidationResult = false;
+			bool actualValidationResult = validateInput(inputCheck, error);
+			errors expectedError = unacceptableSymbolsPresent;
+			int dataValid = 0;
+
+			if (expectedValidationResult == actualValidationResult && error == expectedError)
+				dataValid = 1;
+
+			Assert::AreEqual(1, dataValid);
+		}
+
+		TEST_METHOD(letters)
+		{
+			string inputCheck = "avgsds";
+			errors error;
+
+			bool expectedValidationResult = false;
+			bool actualValidationResult = validateInput(inputCheck, error);
+			errors expectedError = unacceptableSymbolsPresent;
+			int dataValid = 0;
+
+			if (expectedValidationResult == actualValidationResult && error == expectedError)
+				dataValid = 1;
+
+			Assert::AreEqual(1, dataValid);
+		}
+
+		TEST_METHOD(numbersAndLetters)
+		{
+			string inputCheck = "13asfdas";
+			errors error;
+
+			bool expectedValidationResult = false;
+			bool actualValidationResult = validateInput(inputCheck, error);
+			errors expectedError = unacceptableSymbolsPresent;
+			int dataValid = 0;
+
+			if (expectedValidationResult == actualValidationResult && error == expectedError)
+				dataValid = 1;
+
+			Assert::AreEqual(1, dataValid);
+		}
+
+		TEST_METHOD(numbersLettersAndSymbols)
+		{
+			string inputCheck = "45_)Fd,g13";
+			errors error;
+
+			bool expectedValidationResult = false;
+			bool actualValidationResult = validateInput(inputCheck, error);
+			errors expectedError = unacceptableSymbolsPresent;
+			int dataValid = 0;
+
+			if (expectedValidationResult == actualValidationResult && error == expectedError)
+				dataValid = 1;
+
+			Assert::AreEqual(1, dataValid);
+		}
+
+		TEST_METHOD(zero)
+		{
+			string inputCheck = "0";
+			errors error;
+
+			bool expectedValidationResult = false;
+			bool actualValidationResult = validateInput(inputCheck, error);
+			errors expectedError = invalidCubeAmount;
+			int dataValid = 0;
+
+			if (expectedValidationResult == actualValidationResult && error == expectedError)
+				dataValid = 1;
+
+			Assert::AreEqual(1, dataValid);
+		}
+
+		TEST_METHOD(negativeNumber)
+		{
+			string inputCheck = "-124";
+			errors error;
+
+			bool expectedValidationResult = false;
+			bool actualValidationResult = validateInput(inputCheck, error);
+			errors expectedError = unacceptableSymbolsPresent;
+			int dataValid = 0;
+
+			if (expectedValidationResult == actualValidationResult && error == expectedError)
+				dataValid = 1;
+
+			Assert::AreEqual(1, dataValid);
+		}
+
+		TEST_METHOD(numberGreaterThanHundred)
+		{
+			string inputCheck = "124434";
+			errors error;
+
+			bool expectedValidationResult = false;
+			bool actualValidationResult = validateInput(inputCheck, error);
+			errors expectedError = invalidCubeAmount;
+			int dataValid = 0;
+
+			if (expectedValidationResult == actualValidationResult && error == expectedError)
+				dataValid = 1;
+
+			Assert::AreEqual(1, dataValid);
+		}
+	};
 }
