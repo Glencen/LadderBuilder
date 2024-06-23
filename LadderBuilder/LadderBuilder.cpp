@@ -4,7 +4,6 @@
 
 using namespace std;
 
-// Функция для нахождения всех возможных лесенок, которые можно построить из указанного количества кубиков, с учетом количества кубиков в предыдущем уровне
 void findLadders(vector<int>& currentLadder, int remainingNumber, int previousNumber, vector<vector<int>>& ladders) {
     // Если оставшееся количество кубиков равно 0
     if (remainingNumber == 0) {
@@ -25,7 +24,6 @@ void findLadders(vector<int>& currentLadder, int remainingNumber, int previousNu
     }
 }
 
-// Функция для нахождения всех возможных лесенок, которые можно построить из указанного количества кубиков
 vector<vector<int>> findAllLadders(int N)
 {
     vector<int> currentLadder;
@@ -37,7 +35,6 @@ vector<vector<int>> findAllLadders(int N)
     return ladders;
 }
 
-// Функция, проверяющая входные данные на правильность
 bool validateInput(string inputCheck, errors& error)
 {
     // Если длина строки < 1
@@ -74,7 +71,6 @@ bool validateInput(string inputCheck, errors& error)
     return true;
 }
 
-// Функция, записывающая результат работы программы в указанный выходной файл
 void exportResult(vector<vector<int>>& ladders, int N, string outputFileName)
 {
     ofstream output(outputFileName.c_str());

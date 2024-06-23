@@ -6,10 +6,17 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace Tests
 {
+	/*! 
+	*	- Модульные тесты для функции findAllLadders
+	*	-# Минимальное количество кубиков
+	*	-# Максимальное количество кубиков
+	*	-# Количество кубиков - 12
+	*	-# Количество кубиков - 20
+	*/
 	TEST_CLASS(Test_findAllLadders)
 	{
 	public:
-
+	
 		TEST_METHOD(minimumCubes)
 		{
 			int N = 1;
@@ -20,7 +27,7 @@ namespace Tests
 
 			Assert::AreEqual(expectedLadderAmount, actualLadderAmount);
 		}
-
+		
 		TEST_METHOD(maximumCubes)
 		{
 			int N = 100;
@@ -31,7 +38,7 @@ namespace Tests
 
 			Assert::AreEqual(expectedLadderAmount, actualLadderAmount);
 		}
-
+		
 		TEST_METHOD(twelveCubes)
 		{
 			int N = 12;
@@ -42,7 +49,7 @@ namespace Tests
 
 			Assert::AreEqual(expectedLadderAmount, actualLadderAmount);
 		}
-
+		
 		TEST_METHOD(twentyCubes)
 		{
 			int N = 20;
@@ -54,7 +61,19 @@ namespace Tests
 			Assert::AreEqual(expectedLadderAmount, actualLadderAmount);
 		}
 	};
-
+	/*! 
+	*	- Модульные тесты для функции findLadders
+	* 	-# На предыдущем уровне 1 кубик, остался 1
+	* 	-# На предыдущем уровне 2 кубика, остался 1
+	* 	-# На предыдущем уровне 8 кубиков, осталось 8
+	* 	-# На предыдущем уровне 21 кубик, осталось 20
+	* 	-# На предыдущем уровне 30 кубиков, осталось 20
+	* 	-# На предыдущем уровне 5 кубиков, осталось 7
+	* 	-# На предыдущем уровне 4 кубиков, осталось 8
+	* 	-# На предыдущем уровне 5 кубиков, осталось 8
+	* 	-# На предыдущем уровне 3 кубика, осталось 7
+	* 	-# На предыдущем уровне 101 кубик, осталось 100
+	*/
 	TEST_CLASS(Test_findLadders)
 	{
 	public:
@@ -217,7 +236,19 @@ namespace Tests
 			Assert::AreEqual(expectedLadderAmount, actualLadderAmount);
 		}
 	};
-
+	/*!
+	*	- Модульные тесты для функции validateInput
+	*  	-# Пустая строка
+	*  	-# Число
+	*  	-# Несколько чисел
+	*  	-# Цифры и знаки пунктуации
+	*  	-# Буквы
+	*  	-# Цифры и буквы
+	*  	-# Цифры, буквы и знаки
+	*  	-# Ноль
+	*  	-# Отрицательное число
+	*  	-# Число больше 100
+	*/
 	TEST_CLASS(Test_validateInput)
 	{
 	public:
