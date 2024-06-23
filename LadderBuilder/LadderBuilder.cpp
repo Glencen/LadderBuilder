@@ -1,11 +1,10 @@
 ﻿#include <iostream>
 #include <fstream>
-#include <vector>
-#include <string>
-#include <cctype>
+#include "LadderBuilder.h"
 
 using namespace std;
 
+// Функция для нахождения всех возможных лесенок, которые можно построить из указанного количества кубиков, с учетом количества кубиков в предыдущем уровне
 void findLadders(vector<int>& currentLadder, int remainingNumber, int previousNumber, vector<vector<int>>& ladders) {
     if (remainingNumber == 0) {
         ladders.push_back(currentLadder);
